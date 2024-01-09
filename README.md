@@ -166,14 +166,15 @@ Done! Now you can publish messages!. Try it out with:
 ### Configuration
 
 `Outbox` accepts the following opts:
-    - `:repo`: the repo where messages will be read from. Usually should be the same repo that you're writing to. **Mandatory**.
-    - `:publisher`: module responsible to emit the outbox message to an external messagery broker. **Mandatory**.  This module needs to implement a `publish/1` function where a `Outbox.Types.OutboxEvent` data is going to be sent.
-    - `:reader_poll_interval_ms`: Reader time between polling checking for pending messages to be sent. By default: 10_000.
-    - `:consumer_min_demand`: Minimal demand configured for the consumer (ack), producer_consumer(publisher). By default `0`. See `GenStage` documentation for more info.
-    - `:consumer_max_demand`: Minimal demand configured for the consumer (ack), producer_consumer(publisher). By default `1`. See `GenStage` documentation for more info.
-    - `:rescuer_interval_ms`: Rescuer process interval. By default `:timer.seconds(15)`.
-    - `:rescuer_limit_ms`: The time limit for records to be in the publishing state. By default `:timer.seconds(15)`.
-    - `:cleaner_interval_ms`: Cleaner process interval. By default `:timer.seconds(30)`.
-    - `:cleaner_limit_ms`: Cleaner time window (retention policy). By default `:timer.hours(168)`.
-    - `:query_opts`: Additional options for internal queries. By default `[log: false]`.
-    - `:acknowledger_max_demand`: Tell the `Outbox.Pipeline.AcknowledgerSupervisor` how many processes it needs to start according to the demand.
+
+- `:repo`: the repo where messages will be read from. Usually should be the same repo that you're writing to. **Mandatory**.
+- `:publisher`: module responsible to emit the outbox message to an external messagery broker. **Mandatory**.  This module needs to implement a `publish/1` function where a `Outbox.Types.OutboxEvent` data is going to be sent.
+- `:reader_poll_interval_ms`: Reader time between polling checking for pending messages to be sent. By default: 10_000.
+- `:consumer_min_demand`: Minimal demand configured for the consumer (ack), producer_consumer(publisher). By default `0`. See `GenStage` documentation for more info.
+- `:consumer_max_demand`: Minimal demand configured for the consumer (ack), producer_consumer(publisher). By default `1`. See `GenStage` documentation for more info.
+- `:rescuer_interval_ms`: Rescuer process interval. By default `:timer.seconds(15)`.
+- `:rescuer_limit_ms`: The time limit for records to be in the publishing state. By default `:timer.seconds(15)`.
+- `:cleaner_interval_ms`: Cleaner process interval. By default `:timer.seconds(30)`.
+- `:cleaner_limit_ms`: Cleaner time window (retention policy). By default `:timer.hours(168)`.
+- `:query_opts`: Additional options for internal queries. By default `[log: false]`.
+- `:acknowledger_max_demand`: Tell the `Outbox.Pipeline.AcknowledgerSupervisor` how many processes it needs to start according to the demand.
