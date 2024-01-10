@@ -11,7 +11,7 @@ defmodule Outbox.MixProject do
       description: description(),
       name: "Outbox",
       package: package(),
-      source_url: "https://gitlab.otters.xyz/product/guild/elixir/lib/outbox",
+      source_url: "https://github.com/jsolana/outbox",
       docs: docs()
     ]
   end
